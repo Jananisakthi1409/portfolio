@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janani's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background: linear-gradient(to right, #f9c0f5, #fde8fc);
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 182, 193, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2em;
+            color: #ff69b4;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ff69b4;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: #8b008b;
+        }
+        section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(255, 192, 203, 0.7), rgba(255, 182, 193, 0.9)), url('https://via.placeholder.com/1500');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            animation: popIn 2s ease-in-out;
+            color: #8b008b;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .about, .skills, .contact {
+            min-height: 100vh;
+        }
+        .about img {
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            margin: 20px auto;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .skills {
+            background: linear-gradient(to top, #fde8fc, #fff7f9);
+            position: relative;
+        }
+        .skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1200') no-repeat center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+        .progress-bar {
+            margin: 20px auto;
+            max-width: 500px;
+            background: #ffdee3;
+            border-radius: 25px;
+            overflow: hidden;
+            text-align: left;
+        }
+        .progress-bar span {
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            background: #ff69b4;
+            color: white;
+            padding-left: 10px;
+            font-weight: bold;
+            animation: grow 2s ease-in-out;
+        }
+        @keyframes grow {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .contact form {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+            animation: slideIn 1.5s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ffc1cc;
+            font-size: 1em;
+        }
+        .contact button {
+            padding: 10px 20px;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .contact button:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #f9c0f5;
+        }
+        .btn-scroll {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Janani</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Welcome to My Portfolio</h2>
+    <p>A creative developer with a love for beautiful designs and seamless user experiences.</p>
+</section>
+
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <img src="c:\Users\janan\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\034260C0426CF36118803CE0DF4457FD\WhatsApp Image 2025-01-28 at 10.44.30_069d631c.jpg" alt="Janani">
+    <p>I am S. Janani, an ambitious and passionate Information Technology professional currently pursuing my B.Tech at Sri Krishna College of Technology. With a strong foundation in programming and a diverse skill set that includes C++, Java, Python, ReactJS, Cloud Computing, REST APIs, Data Structures and Algorithms (DSA), Design and Analysis of Algorithms (DAA), and UI/UX Design, I strive to craft innovative and efficient solutions to complex problems.
+
+        Throughout my academic journey, I have consistently demonstrated my commitment to excellence, achieving milestones while embracing new challenges. My passion for emerging technologies inspires me to stay updated, explore, and experiment with evolving trends, including cloud-native systems and cutting-edge development practices.
+        
+        In addition to my technical expertise, I am working diligently to refine my communication and collaborative skills. I strongly believe in the significance of impactful communication in realizing great ideas.
+        
+        When I'm not diving into code or studying, I spend time reading books, gaining perspectives, and exploring new ideas that fuel my creativity and curiosity. My hobbies and interests complement my technical passion, ensuring a balanced and well-rounded approach to personal and professional growth.
+        
+        With a dream to leave a mark in the IT world, I aim to excel in every opportunity, contribute meaningfully to the community, and embrace challenges that make me a better learner, developer, and individual.</p>
+</section>
+
+<section id="skills" class="skills">
+    <h2>My Skills</h2>
+    <div class="progress-bar">
+        <span style="width: 90%;">HTML & CSS - 90%</span>
+    </div>
+    <div class="progress-bar">
+        <span style="width: 85%;">JavaScript - 85%</span>
+    </div>
+    <div class="progress-bar">
+        <span style="width: 80%;">React - 80%</span>
+    </div>
+    <div class="progress-bar">
+        <span style="width: 75%;">UI/UX Design - 75%</span>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Janani. All rights reserved.</p>
+</footer>
+
+<button class="btn-scroll" onclick="scrollToTop()">&uarr;</button>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
